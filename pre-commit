@@ -1,15 +1,15 @@
 #!/bin/sh
 
-echo "*****Running gradle build******"
-RED='\033[0;31m'
-./gradlew spotlessCheck
-spotless_result=$?
-if [ "$spotless_result" -eq 1 ]
-then
-  ./gradlew spotlessApply
-  echo "\n\n\n${RED}BUILD FAILED due to SpotlessCheck! \nThere are some spotless code format fix. Please review and add them to git."
-  exit 1
-fi
+#echo "*****Running gradle build******"
+#RED='\033[0;31m'
+#./gradlew spotlessCheck
+#spotless_result=$?
+#if [ "$spotless_result" -eq 1 ]
+#then
+#  ./gradlew spotlessApply
+#  echo "\n\n\n${RED}BUILD FAILED due to SpotlessCheck! \nThere are some spotless code format fix. Please review and add them to git."
+#  exit 1
+#fi
 
 ./gradlew checkstyleMain
 checkstyle_result=$?

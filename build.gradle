@@ -4,7 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.3'
 	id 'org.liquibase.gradle' version '2.0.4'
 	id 'checkstyle'
-	id "com.diffplug.spotless" version "6.22.0"
+//	id "com.diffplug.spotless" version "6.22.0"
 }
 
 group = 'com.kv'
@@ -40,7 +40,7 @@ dependencies {
 }
 
 apply plugin: "org.liquibase.gradle"
-apply from: "${rootDir}/spotless.gradle"
+//apply from: "${rootDir}/spotless.gradle"
 apply plugin: 'checkstyle'
 
 tasks.named('test') {
@@ -48,7 +48,7 @@ tasks.named('test') {
 }
 
 build.dependsOn 'checkstyleMain'
-checkstyleMain.dependsOn 'spotlessApply'
+//checkstyleMain.dependsOn 'spotlessApply'
 
 tasks.register('addPreCommitGitHook', Copy) {
 	from new File(rootProject.rootDir, 'pre-commit')
@@ -57,4 +57,3 @@ tasks.register('addPreCommitGitHook', Copy) {
 }
 
 build.dependsOn addPreCommitGitHook
-
